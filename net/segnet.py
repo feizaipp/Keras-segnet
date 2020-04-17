@@ -47,7 +47,7 @@ def decoder(feature, n_classes, n_up=3):
 
     o = ZeroPadding2D(padding=(1, 1), data_format=DATA_FORMAT)(o)
     o = Conv2D(255, (3, 3), padding="valid", data_format=DATA_FORMAT)(o)
-    o = BatchNormalization(o)
+    o = BatchNormalization()(o)
 
     for _ in range(n_up - 2):
         o = UpSampling2D(size=(2, 2), data_format=DATA_FORMAT)(o)
@@ -70,7 +70,7 @@ def segnet(n_classes, input_height=360, input_width=480, encoder_level = 3):
 
     o = decoder(feature, n_classes, n_up=3)
 
-    o = Reshape(((int(input_height/2) * int(input_width/2)), -1))(o)
+    o = Reshape((int(input_height/2) * int(input_width/2), -1))(o)
 
     o = Softmax()(o)
     model = Model(data_input, o)

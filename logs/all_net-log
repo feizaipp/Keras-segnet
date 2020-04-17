@@ -1,0 +1,166 @@
+Model: "model_1"
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+input_1 (InputLayer)         (None, 416, 416, 3)       0         
+_________________________________________________________________
+block1_conv1 (Conv2D)        (None, 416, 416, 64)      1792      
+_________________________________________________________________
+block1_conv2 (Conv2D)        (None, 416, 416, 64)      36928     
+_________________________________________________________________
+block1_pool (MaxPooling2D)   (None, 208, 208, 64)      0         
+_________________________________________________________________
+block2_conv1 (Conv2D)        (None, 208, 208, 128)     73856     
+_________________________________________________________________
+block2_conv2 (Conv2D)        (None, 208, 208, 128)     147584    
+_________________________________________________________________
+block2_pool (MaxPooling2D)   (None, 104, 104, 128)     0         
+_________________________________________________________________
+block3_conv1 (Conv2D)        (None, 104, 104, 256)     295168    
+_________________________________________________________________
+block3_conv2 (Conv2D)        (None, 104, 104, 256)     590080    
+_________________________________________________________________
+block3_pool (MaxPooling2D)   (None, 52, 52, 256)       0         
+_________________________________________________________________
+block4_conv1 (Conv2D)        (None, 52, 52, 512)       1180160   
+_________________________________________________________________
+block4_conv2 (Conv2D)        (None, 52, 52, 512)       2359808   
+_________________________________________________________________
+block4_pool (MaxPooling2D)   (None, 26, 26, 512)       0         
+_________________________________________________________________
+zero_padding2d_1 (ZeroPaddin (None, 28, 28, 512)       0         
+_________________________________________________________________
+conv2d_1 (Conv2D)            (None, 26, 26, 512)       2359808   
+_________________________________________________________________
+batch_normalization_1 (Batch (None, 26, 26, 512)       2048      
+_________________________________________________________________
+up_sampling2d_1 (UpSampling2 (None, 52, 52, 512)       0         
+_________________________________________________________________
+zero_padding2d_2 (ZeroPaddin (None, 54, 54, 512)       0         
+_________________________________________________________________
+conv2d_2 (Conv2D)            (None, 52, 52, 255)       1175295   
+_________________________________________________________________
+batch_normalization_2 (Batch (None, 52, 52, 255)       1020      
+_________________________________________________________________
+up_sampling2d_2 (UpSampling2 (None, 104, 104, 255)     0         
+_________________________________________________________________
+zero_padding2d_3 (ZeroPaddin (None, 106, 106, 255)     0         
+_________________________________________________________________
+conv2d_3 (Conv2D)            (None, 104, 104, 128)     293888    
+_________________________________________________________________
+batch_normalization_3 (Batch (None, 104, 104, 128)     512       
+_________________________________________________________________
+up_sampling2d_3 (UpSampling2 (None, 208, 208, 128)     0         
+_________________________________________________________________
+zero_padding2d_4 (ZeroPaddin (None, 210, 210, 128)     0         
+_________________________________________________________________
+conv2d_4 (Conv2D)            (None, 208, 208, 64)      73792     
+_________________________________________________________________
+batch_normalization_4 (Batch (None, 208, 208, 64)      256       
+_________________________________________________________________
+conv2d_5 (Conv2D)            (None, 208, 208, 12)      6924      
+_________________________________________________________________
+reshape_1 (Reshape)          (None, 43264, 12)         0         
+_________________________________________________________________
+softmax_1 (Softmax)          (None, 43264, 12)         0         
+=================================================================
+Total params: 8,598,919
+Trainable params: 8,597,001
+Non-trainable params: 1,918
+_________________________________________________________________
+Epoch 1/50
+2020-04-16 21:58:57.456078: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 398721024 exceeds 10% of system memory.
+2020-04-16 21:58:57.549260: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 398721024 exceeds 10% of system memory.
+ 1/91 [..............................] - ETA: 26:31 - loss: 12.3581 - accuracy: 0.10232020-04-16 21:59:08.576817: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 398721024 exceeds 10% of system memory.
+2020-04-16 21:59:08.597319: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 398721024 exceeds 10% of system memory.
+ 2/91 [..............................] - ETA: 20:42 - loss: 10.3800 - accuracy: 0.27122020-04-16 21:59:18.918259: W tensorflow/core/framework/cpu_allocator_impl.cc:81] Allocation of 398721024 exceeds 10% of system memory.
+91/91 [==============================] - 983s 11s/step - loss: 4.8460 - accuracy: 0.6545 - val_loss: 26.9478 - val_accuracy: 0.4835
+Epoch 2/50
+91/91 [==============================] - 975s 11s/step - loss: 3.6670 - accuracy: 0.7377 - val_loss: 7.3703 - val_accuracy: 0.5157
+Epoch 3/50
+91/91 [==============================] - 975s 11s/step - loss: 3.3432 - accuracy: 0.7609 - val_loss: 3.5205 - val_accuracy: 0.7628
+Epoch 4/50
+91/91 [==============================] - 975s 11s/step - loss: 3.1345 - accuracy: 0.7772 - val_loss: 8.3466 - val_accuracy: 0.5833
+Epoch 5/50
+91/91 [==============================] - 979s 11s/step - loss: 2.9320 - accuracy: 0.7900 - val_loss: 3.0174 - val_accuracy: 0.7871
+Epoch 6/50
+91/91 [==============================] - 978s 11s/step - loss: 2.8250 - accuracy: 0.7977 - val_loss: 4.7535 - val_accuracy: 0.6635
+Epoch 7/50
+91/91 [==============================] - 978s 11s/step - loss: 2.6478 - accuracy: 0.8093 - val_loss: 3.1894 - val_accuracy: 0.7431
+Epoch 8/50
+91/91 [==============================] - 981s 11s/step - loss: 2.5745 - accuracy: 0.8153 - val_loss: 3.2975 - val_accuracy: 0.8187
+
+Epoch 00008: ReduceLROnPlateau reducing learning rate to 0.0005000000237487257.
+Epoch 9/50
+91/91 [==============================] - 982s 11s/step - loss: 2.3422 - accuracy: 0.8321 - val_loss: 3.2126 - val_accuracy: 0.8099
+Epoch 10/50
+91/91 [==============================] - 980s 11s/step - loss: 2.2836 - accuracy: 0.8351 - val_loss: 3.0336 - val_accuracy: 0.7602
+Epoch 11/50
+91/91 [==============================] - 980s 11s/step - loss: 2.2217 - accuracy: 0.8397 - val_loss: 2.4796 - val_accuracy: 0.8215
+Epoch 12/50
+91/91 [==============================] - 980s 11s/step - loss: 2.1619 - accuracy: 0.8433 - val_loss: 2.9446 - val_accuracy: 0.8249
+Epoch 13/50
+91/91 [==============================] - 981s 11s/step - loss: 2.1227 - accuracy: 0.8475 - val_loss: 2.3473 - val_accuracy: 0.8496
+Epoch 14/50
+91/91 [==============================] - 981s 11s/step - loss: 2.0158 - accuracy: 0.8544 - val_loss: 2.8980 - val_accuracy: 0.7941
+Epoch 15/50
+91/91 [==============================] - 980s 11s/step - loss: 2.0265 - accuracy: 0.8537 - val_loss: 2.0865 - val_accuracy: 0.8479
+Epoch 16/50
+91/91 [==============================] - 981s 11s/step - loss: 1.9045 - accuracy: 0.8626 - val_loss: 2.3031 - val_accuracy: 0.8439
+Epoch 17/50
+91/91 [==============================] - 981s 11s/step - loss: 1.8259 - accuracy: 0.8684 - val_loss: 2.0807 - val_accuracy: 0.8498
+Epoch 18/50
+91/91 [==============================] - 981s 11s/step - loss: 1.8291 - accuracy: 0.8677 - val_loss: 2.1952 - val_accuracy: 0.8518
+Epoch 19/50
+91/91 [==============================] - 980s 11s/step - loss: 1.7741 - accuracy: 0.8716 - val_loss: 2.2911 - val_accuracy: 0.8395
+Epoch 20/50
+91/91 [==============================] - 979s 11s/step - loss: 1.6924 - accuracy: 0.8777 - val_loss: 2.0661 - val_accuracy: 0.8648
+Epoch 21/50
+91/91 [==============================] - 981s 11s/step - loss: 1.6684 - accuracy: 0.8793 - val_loss: 1.7992 - val_accuracy: 0.8581
+Epoch 22/50
+91/91 [==============================] - 982s 11s/step - loss: 1.6224 - accuracy: 0.8827 - val_loss: 2.0512 - val_accuracy: 0.8520
+Epoch 23/50
+91/91 [==============================] - 982s 11s/step - loss: 1.5537 - accuracy: 0.8881 - val_loss: 1.8597 - val_accuracy: 0.8673
+Epoch 24/50
+91/91 [==============================] - 983s 11s/step - loss: 1.5249 - accuracy: 0.8890 - val_loss: 1.9519 - val_accuracy: 0.8579
+
+Epoch 00024: ReduceLROnPlateau reducing learning rate to 0.0002500000118743628.
+Epoch 25/50
+91/91 [==============================] - 982s 11s/step - loss: 1.4086 - accuracy: 0.8979 - val_loss: 1.6909 - val_accuracy: 0.8681
+Epoch 26/50
+91/91 [==============================] - 981s 11s/step - loss: 1.3511 - accuracy: 0.9018 - val_loss: 1.8196 - val_accuracy: 0.8695
+Epoch 27/50
+91/91 [==============================] - 979s 11s/step - loss: 1.3178 - accuracy: 0.9041 - val_loss: 1.9631 - val_accuracy: 0.8733
+Epoch 28/50
+91/91 [==============================] - 983s 11s/step - loss: 1.3106 - accuracy: 0.9042 - val_loss: 1.8050 - val_accuracy: 0.8699
+
+Epoch 00028: ReduceLROnPlateau reducing learning rate to 0.0001250000059371814.
+Epoch 29/50
+91/91 [==============================] - 981s 11s/step - loss: 1.2478 - accuracy: 0.9088 - val_loss: 1.5841 - val_accuracy: 0.8693
+Epoch 30/50
+91/91 [==============================] - 980s 11s/step - loss: 1.2302 - accuracy: 0.9098 - val_loss: 1.9722 - val_accuracy: 0.8678
+Epoch 31/50
+91/91 [==============================] - 982s 11s/step - loss: 1.2189 - accuracy: 0.9104 - val_loss: 1.8152 - val_accuracy: 0.8747
+Epoch 32/50
+91/91 [==============================] - 981s 11s/step - loss: 1.2068 - accuracy: 0.9110 - val_loss: 1.9426 - val_accuracy: 0.8679
+
+Epoch 00032: ReduceLROnPlateau reducing learning rate to 6.25000029685907e-05.
+Epoch 33/50
+91/91 [==============================] - 982s 11s/step - loss: 1.1766 - accuracy: 0.9132 - val_loss: 1.7975 - val_accuracy: 0.8657
+Epoch 34/50
+91/91 [==============================] - 984s 11s/step - loss: 1.1630 - accuracy: 0.9140 - val_loss: 1.7049 - val_accuracy: 0.8723
+Epoch 35/50
+91/91 [==============================] - 982s 11s/step - loss: 1.1542 - accuracy: 0.9146 - val_loss: 1.6719 - val_accuracy: 0.8659
+
+Epoch 00035: ReduceLROnPlateau reducing learning rate to 3.125000148429535e-05.
+Epoch 36/50
+91/91 [==============================] - 982s 11s/step - loss: 1.1409 - accuracy: 0.9155 - val_loss: 1.9289 - val_accuracy: 0.8714
+Epoch 37/50
+91/91 [==============================] - 980s 11s/step - loss: 1.1376 - accuracy: 0.9157 - val_loss: 1.8527 - val_accuracy: 0.8704
+Epoch 38/50
+91/91 [==============================] - 983s 11s/step - loss: 1.1334 - accuracy: 0.9159 - val_loss: 1.9229 - val_accuracy: 0.8687
+
+Epoch 00038: ReduceLROnPlateau reducing learning rate to 1.5625000742147677e-05.
+Epoch 39/50
+91/91 [==============================] - 984s 11s/step - loss: 1.1235 - accuracy: 0.9166 - val_loss: 1.7360 - val_accuracy: 0.8683
+Epoch 00039: early stopping
