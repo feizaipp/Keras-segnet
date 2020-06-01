@@ -21,16 +21,19 @@ def encoder(input_height=360, input_width=480):
 
     o = Conv2D(256, (3, 3), activation="relu", padding="same", name="block3_conv1")(o)
     o = Conv2D(256, (3, 3), activation="relu", padding="same", name="block3_conv2")(o)
+    o = Conv2D(256, (3, 3), activation="relu", padding="same", name="block3_conv3")(o)
     o = MaxPooling2D((2, 2), strides=(2, 2), name="block3_pool")(o)
     featrue3 = o
 
     o = Conv2D(512, (3, 3), activation="relu", padding="same", name="block4_conv1")(o)
     o = Conv2D(512, (3, 3), activation="relu", padding="same", name="block4_conv2")(o)
+    o = Conv2D(512, (3, 3), activation="relu", padding="same", name="block4_conv3")(o)
     o = MaxPooling2D((2, 2), strides=(2, 2), name="block4_pool")(o)
     featrue4 = o
 
     o = Conv2D(512, (3, 3), activation="relu", padding="same", name="block5_conv1")(o)
     o = Conv2D(512, (3, 3), activation="relu", padding="same", name="block5_conv2")(o)
+    o = Conv2D(512, (3, 3), activation="relu", padding="same", name="block5_conv3")(o)
     o = MaxPooling2D((2, 2), strides=(2, 2), name="block5_pool")(o)
     feature5 = o
     
